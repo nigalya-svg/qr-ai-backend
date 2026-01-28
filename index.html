@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI-Powered QR Gateway – Plant Intelligence</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { font-family: Arial, sans-serif; background:#f4f6f8; margin:0; }
+    header { background:#0a2a66; color:#fff; padding:18px; text-align:center; }
+    .container { padding:20px; }
+    .row { margin-bottom:20px; }
+    select { padding:10px; font-size:16px; }
+    .card { background:#fff; padding:16px; border-radius:8px; margin-bottom:16px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+    .ai { border-left:5px solid #ff9800; background:#fff7e6; }
+    .hidden { display:none; }
+    .tag { display:inline-block; background:#e0e7ff; padding:4px 8px; border-radius:12px; font-size:12px; margin-right:6px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h2>Single QR → AI‑Powered Multi‑Layer Plant Intelligence</h2>
+  <p>Device-centric • Role-based • No SCADA dependency</p>
+</header>
+
+<div class="container">
+
+  <!-- Device Identification (from QR) -->
+  <div class="card">
+    <b>Device ID:</b> AX001<br>
+    <b>Location:</b> Line 2 – Packaging Unit<br>
+    <span class="tag">QR Entry</span>
+    <span class="tag">ISO 2D QR</span>
+  </div>
+
+  <!-- Role Selection -->
+  <div class="row">
+    <label><b>Select User Role:</b></label><br><br>
+    <select id="role" onchange="showLayer()">
+      <option value="">-- Choose Role --</option>
+      <option value="operator">Operator</option>
+      <option value="maintenance">Maintenance</option>
+      <option value="auditor">Auditor</option>
+      <option value="ai">AI Overview</option>
+    </select>
+  </div>
+
+  <!-- Operator Layer -->
+  <div id="operator" class="card hidden">
+    <h3>👷 Operator Dashboard</h3>
+    <p>Status: <b>RUNNING</b></p>
+    <p>Speed: 1450 RPM</p>
+    <p>Temperature: <b>82°C</b></p>
+    <div class="card ai">
+      <b>AI Alert:</b> Temperature exceeds normal range. Risk level: Medium.
+    </div>
+  </div>
+
+  <!-- Maintenance Layer -->
+  <div id="maintenance" class="card hidden">
+    <h3>🧑‍🔧 Maintenance Dashboard</h3>
+    <p>Last Maintenance: 32 days ago</p>
+    <p>Total Run Hours: 4,820 hrs</p>
+    <div class="card ai">
+      <b>AI Prediction:</b> Bearing wear likely within 6–8 days.
+    </div>
+    <div class="card ai">
+      <b>AI Recommendation:</b> Schedule preventive maintenance within 48 hours.
+    </div>
+  </div>
+
+  <!-- Auditor Layer -->
+  <div id="auditor" class="card hidden">
+    <h3>🧾 Audit & Compliance View</h3>
+    <p>Configuration: Approved</p>
+    <p>Firmware Version: v2.4.1</p>
+    <p>Maintenance SLA: Compliant</p>
+    <div class="card ai">
+      <b>AI Summary:</b> System compliant with operational and safety standards.
+    </div>
+  </div>
+
+  <!-- AI Layer -->
+  <div id="ai" class="card hidden">
+    <h3>🤖 AI Intelligence Layer</h3>
+    <p><b>Diagnosis:</b> Heat buildup caused by reduced airflow.</p>
+    <p><b>Prediction:</b> Failure probability 78% in next 7 days.</p>
+    <p><b>Prescription:</b> Replace cooling fan and inspect bearings.</p>
+    <div class="card ai">
+      <b>AI Insight:</b> Early intervention can reduce downtime by ~35%.
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function showLayer() {
+    const layers = ['operator','maintenance','auditor','ai'];
+    layers.forEach(l => document.getElementById(l).classList.add('hidden'));
+    const role = document.getElementById('role').value;
+    if (role) document.getElementById(role).classList.remove('hidden');
+  }
+</script>
+
+</body>
+</html>
